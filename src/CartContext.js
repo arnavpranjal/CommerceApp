@@ -4,9 +4,11 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-
+  const [cartCost, setCartCost] = useState(0);
+  console.log(cartCost);
   const addToCart = (product, count) => {
     const existingProduct = cartItems.find((item) => item.id === product.id);
+    console.log(product);
 
     if (existingProduct) {
       // If product exists, update the quantity
@@ -24,6 +26,28 @@ export const CartProvider = ({ children }) => {
         { ...product, quantity: count },
       ]);
     }
+  };
+  const removeCart = (it) => {
+    if (it.quantity === 1) {
+      // If product exists, update the quantity
+      setCartItems((prevItems) =>
+        prevItems.filter((item) => item.id !== it.id)
+      );
+    } else {
+      // If product doesn't exist, add it with the count as quantity
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === it.id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+      );
+    }
+  };
+  const incrementCart = (it) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === it.id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
   };
 
   const removeFromCart = (productId) => {
@@ -51,6 +75,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         clearCart,
         getTotalPrice,
+        removeCart,
+        incrementCart,
       }}
     >
       {children}

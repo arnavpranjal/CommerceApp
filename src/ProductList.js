@@ -19,18 +19,20 @@ function ProductList({ products }) {
   // }, []);
   // console.log(products);
   return (
-    <div className="App">
+    <div className="opp">
       <h1>Products</h1>
-      {products.map((product) => (
-        <Product
-          key={product.id} // <-- Unique key prop for each product
-          id={product.id}
-          image={product.image.url}
-          name={product.name}
-          description={product.description}
-          price={product.price.formatted}
-        />
-      ))}
+      <div className="grid">
+        {products.map((product) => (
+          <Product
+            key={product.id} // <-- Unique key prop for each product
+            id={product.id}
+            image={product.image.url}
+            name={product.name}
+            description={product.description}
+            price={product.price.formatted}
+          />
+        ))}
+      </div>
     </div>
   );
 }

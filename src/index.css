@@ -1,13 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Orbitron:wght@400;700&family=Roboto&display=swap");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(124, 126, 126, 0.8);
+  position: sticky; /* Make the navbar sticky */
+  top: 0;
+}
+
+/* .navbar > div {
+  flex: 1;
+  text-align: right;
+} */
+a,
+a:link,
+a:visited {
+  color: inherit; /* This ensures the link color is the same as the surrounding text */
+  text-decoration: none; /* This removes the underline */
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: inherit; /* Keeps the color consistent on hover, active, and focus states */
+  text-decoration: none; /* Removes underline on hover, active, and focus states */
+  outline: none; /* Removes the outline on focus */
+}
+.cart {
+  text-align: center;
+}
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search {
+  width: 40%;
+}
+.logo > h3 {
+  font-family: "roboto", sans-serif;
+  font-size: 24px; /* Adjust the size as needed */
+  font-weight: bold; /* Make it bold */
+  color: #333;
+  letter-spacing: 1px; /* Adds spacing between letters */
+
+  margin: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0 10px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 40px 8px 8px; /* Adjust the padding as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: gray;
+}
+.carticon {
+  text-align: right;
+  margin-right: 2%;
+  position: relative;
+  cursor: pointer;
+}
+.cart-count {
+  position: absolute;
+  top: -9px;
+  right: -19px;
+  background-color: orange;
+  color: white;
+  border-radius: 100%;
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+.line {
+  position: absolute;
+  bottom: -5px;
+  right: 0px;
+  left: 0px;
+  background-color: orange;
+  height: 4px;
+  border-radius: 20%;
+  min-width: 1px;
+}
+@media screen and (max-width: 900px) {
+  .search {
+    width: 60%;
+  }
+  .logo > h3 {
+    font-size: 16px;
+  }
+  .logo {
+    width: 25%;
+  }
+}
+.product {
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  font-family: "roboto", sans-serif;
+  margin: 2%;
+  border-radius: 8px; /* Rounded corners */
+  background-color: white;
+  max-width: 300px; /* Or any appropriate width */
+  /* text-align: center;  */
+}
+.product img {
+  width: 100%; /* Ensure image fits in the card */
+  height: auto;
+  border-radius: 4px; /* Slightly rounded corners for the image */
+}
+/* .product h2 {
+  text-align: left; /* Aligns the text to the left */
+/* Add any additional styling needed for h2 */
+/* margin-left: 5px; */
+
+.product p,
+.product h2 {
+  margin: 6px 0px 6px 6px;
+}
+.star-rating {
+  color: gold;
+  font-size: 24px; /* Adjust size as needed */
+  margin-right: 10px;
+}
+
+.star-rating span {
+  margin-right: 2px; /* Small space between stars */
+}
+.hkl {
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Vertically center the items */
+  justify-content: space-between;
+}
+
+.priceandbutton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1% 5px 1% 5%; */
+}
+.addtocart {
+  font-family: "roboto", sans-serif;
+  background-color: orange; /* Orange background */
+  color: white; /* White text */
+  border: none;
+  padding: 7px 15px; /* Add padding to increase size and maintain aspect ratio */
+  border-radius: 15px; /* Rounded edges for a cylindrical shape */
+  cursor: pointer; /* Cursor changes to a pointer to indicate it's clickable */
+  margin: 2%;
+  transition: background-color 0.3s ease;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  padding: 4%;
+  justify-items: center;
+}
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 868px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 550px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.opp h1 {
+  font-family: "roboto", sans-serif;
+  padding: 1% 5.3% 0% 5.3%;
+  margin: 0;
+}
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* Light text */
+  padding: 3% 3%;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5%;
+}
+.socialicon {
+  margin-right: 1%;
+  font-size: 30px;
+}
+.customp {
+  margin: 0;
+}
+.customp:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+@media (max-width: 868px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 550px) {
+  .footer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.d {
+  display: flex;
+  justify-content: space-between;
+  padding: 5% 25% 5% 25%;
+  font-family: "roboto", sans-serif;
+}
+.d1,
+.d2 {
+  flex: 1;
+  width: 50%;
+}
+.d2 {
+  margin-top: 1.2%;
+}
+@media (max-width: 950px) {
+  .d {
+    padding: 5%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .d1,
+  .d2 {
+    width: 100%;
+  }
+}
+.cartCard {
+  background-color: aqua;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+}
+.cartImage {
+  width: 10%;
 }

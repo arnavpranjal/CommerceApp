@@ -1,10 +1,14 @@
 // Cart.js
 import React from "react";
 import { useCart } from "./CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart, getTotalPrice } = useCart();
-
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/cart");
+  };
   return (
     <div>
       <h2>Shopping Cart</h2>
